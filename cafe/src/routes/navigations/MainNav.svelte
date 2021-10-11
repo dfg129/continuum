@@ -8,10 +8,10 @@
         <div>
             <ul>
                 <li>
-                    <a href="/constructions/Construct1.svelte" class="bg-green-100 shadow-lg">Construct1</a>
+                    <a href="/construction1" class="bg-green-100 shadow-lg">Construct1</a>
                 </li>
                 <li>
-                    <a href="/constructions/Construct2" class="bg-purple-100 shadow-lg">Construct2</a>
+                    <a href="/construction2" class="bg-purple-100 shadow-lg">Construct2</a>
                 </li>
             </ul>
         </div>
