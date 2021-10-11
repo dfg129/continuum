@@ -2,8 +2,8 @@
     import { getContext } from 'svelte';
     import { fly } from 'svelte/transition';
     import Quote from '$lib/header/Quote.svelte';
-    import Dialog from '$lib/header/Dialog.svelte';
-    import CloseButton from '$lib/header/CloseButton.svelte';
+   // import Dialog from '$lib/header/Dialog.svelte';
+   // import CloseButton from '$lib/header/CloseButton.svelte';
   
     const { open } = getContext('simple-modal');
       
@@ -19,7 +19,7 @@
                   message: ""
               },
             {
-                  closeButton: CloseButton,
+                  // closeButton: CloseButton,
                   styleBg: {
                       background: 'rgba(200, 255, 0, 0.66)'
                   },
@@ -36,80 +36,80 @@
                       fontFamily: 'Comic Sans',
                       fontStyle: 'italic'
                   },
-                  styleCloseButton: {
-                      borderRadius: 0,
-                      boxShadow: '0 0 0 2px white',
-                      background: 'pink'
-                  },
+                //   styleCloseButton: {
+                //       borderRadius: 0,
+                //       boxShadow: '0 0 0 2px white',
+                //       background: 'pink'
+                //   },
                   transitionWindow: fly,
                   transitionWindowProps: {
                       y: 100,
                       duration: 1000
                   },
               },
-              {
-                  onOpen: () => {
-                      opening = true;
-                  },
-                  onOpened: () => {
-                      opening = false;
-                      opened = true;
-                  },
-                  onClose: () => {
-                      opened = false;
-                      closing = true;
-                  },
-                  onClosed: () => {
-                      closing = false;
-                      closed = true;
-                      setTimeout(() => { closed = false; }, 1000);
-                  }
-              }
+            //   {
+            //       onOpen: () => {
+            //           opening = true;
+            //       },
+            //       onOpened: () => {
+            //           opening = false;
+            //           opened = true;
+            //       },
+            //       onClose: () => {
+            //           opened = false;
+            //           closing = true;
+            //       },
+            //       onClosed: () => {
+            //           closing = false;
+            //           closed = true;
+            //           setTimeout(() => { closed = false; }, 1000);
+            //       }
+            //   }
           );
       };
       
-      let name;
-      let status = 0;
+    //   let name;
+    //   let status = 0;
       
-      const onCancel = (text) => {
-          name = '';
-          status = -1;
-      }
+    //   const onCancel = (text) => {
+    //       name = '';
+    //       status = -1;
+    //   }
       
-      const onOkay = (text) => {
-          name = text;
-          status = 1;
-      }
+    //   const onOkay = (text) => {
+    //       name = text;
+    //       status = 1;
+    //   }
   
-    const showDialog = () => {
-          open(
-              Dialog,
-              {
-                  message: "What is your name?",
-                  hasForm: true,
-                  onCancel,
-                  onOkay
-              },
-              {
-                  closeButton: false,
-              closeOnEsc: false,
-              closeOnOuterClick: false,
-              }
-        );
-      };
+    // const showDialog = () => {
+    //       open(
+    //           Dialog,
+    //           {
+    //               message: "What is your name?",
+    //               hasForm: true,
+    //               onCancel,
+    //               onOkay
+    //           },
+    //           {
+    //               closeButton: false,
+    //           closeOnEsc: false,
+    //           closeOnOuterClick: false,
+    //           }
+    //     );
+    //   };
   </script>
   
   <section>
       <button on:click={showQuote}>About</button>
       <br/>
   
-      {#if status === 1}
+      <!-- {#if status === 1}
           <p>Hi {name}! 👋</p>
       {:else if status === -1}
           <p><em>Dialog was canceled</em></p>
-      {/if}
+      {/if} -->
   
-      <div id="state">
+      <!-- <div id="state">
           {#if opening}
               <p>opening modal...</p>
           {:else if opened}
@@ -119,7 +119,7 @@
           {:else if closed}
               <p>closed modal!</p>
           {/if}
-      </div>
+      </div> -->
   </section>
   
   <style>
@@ -127,11 +127,11 @@
           padding-top: 0.5em;
       }
       
-      #state {
+      /* #state {
           position: absolute;
           top: 0;
           right: 0;
           opacity: 0.33;
           font-size: 0.8em;
-      }
+      } */
   </style>

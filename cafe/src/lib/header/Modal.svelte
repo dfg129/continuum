@@ -26,7 +26,7 @@
     export let show = null;
   
     export let key = 'simple-modal';
-    export let closeButton = true;
+    export let closeButton = false;
     export let closeOnEsc = true;
     export let closeOnOuterClick = true;
     export let styleBg =  {};
