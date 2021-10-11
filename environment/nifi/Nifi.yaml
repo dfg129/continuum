@@ -1,0 +1,5 @@
+apiVersion: v2
+name: nifi
+description: Sometime to hang on to
+version: 0.1.0
+appVersion: 1.0
