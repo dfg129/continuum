@@ -1,21 +1,29 @@
 <script lang="ts">
-    import { page } from '$app/stores';
+   	import Content from '$lib/header/Content.svelte';
+    import Modal from '$lib/header/Modal.svelte';
+	import { writable } from 'svelte/store';
+
+    let opening = false;
+    let opened = false;
+    let closing = false;
+    let closed = false;
+
+	let modal = writable(null);
+    let windowStyle = writable({});
 </script>
 
-<header>
-	<div class="corner">
-        <a sveltekit:prefetch href="/about">About</a>
-	</div>
-</header>
 
+<div class="corner">
+	<Modal show={$modal}>
+    	<Content/>
+	</Modal> 
+</div>
+<div class="text-black text-3xl text-center font-bold p-3">
+    Cafe Continuum
+</div>
 
 
 <style>
-	header {
-		display: flex;
-		justify-content: space-between;
-	}
-
 	.corner {
 		width: 3em;
 		height: 3em;
@@ -35,53 +43,8 @@
 		object-fit: contain;
 	}
 
-	nav {
-		display: flex;
-		justify-content: center;
-		--background: rgba(255, 255, 255, 0.7);
-	}
 
-	svg {
-		width: 2em;
-		height: 3em;
-		display: block;
-	}
-
-	path {
-		fill: var(--background);
-	}
-
-	ul {
-		position: relative;
-		padding: 0;
-		margin: 0;
-		height: 3em;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		list-style: none;
-		background: var(--background);
-		background-size: contain;
-	}
-
-	li {
-		position: relative;
-		height: 100%;
-	}
-
-	li.active::before {
-		--size: 6px;
-		content: '';
-		width: 0;
-		height: 0;
-		position: absolute;
-		top: 0;
-		left: calc(50% - var(--size));
-		border: var(--size) solid transparent;
-		border-top: var(--size) solid var(--accent-color);
-	}
-
-	nav a {
+	/* nav a {
 		display: flex;
 		height: 100%;
 		align-items: center;
@@ -97,5 +60,5 @@
 
 	a:hover {
 		color: var(--accent-color);
-	}
+	} */
 </style>
